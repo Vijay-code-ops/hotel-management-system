@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Ordering Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Hide overflow to prevent scroll bars from appearing */
+    }
+    .container {
+      position: relative; /* Make the container relative for absolute positioning of video */
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1; /* Ensure the form is above the video */
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .fullscreen-bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1; /* Set z-index to send the video behind other content */
+    }
+    .fullscreen-bg__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div class="fullscreen-bg">
+  <video loop autoplay muted class="fullscreen-bg__video">
+    <source src="food.mp4" type="video/mp4">
+    <!-- Provide alternative video formats here -->
+  </video>
+</div>
+
+<div class="container">
+  <h1>Order Your Favorite @ Miranda</h1>
+  <form id="foodOrderForm" method="post" action="foodb.php">
+    <div class="form-group">
+      <label for="cuisineType">Select Cuisine:</label>
+      <select id="cuisineType" name="cuisineType" class="form-control" onchange="showFoodDropdown()">
+        <option value="italian">Italian Cuisine</option>
+        <option value="japanese">Japanese Cuisine</option>
+        <option value="mexican">Mexican Cuisine</option>
+        <option value="indian">Indian Cuisine</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="italianFoodDropdown" style="display:none;">
+      <label for="italianFood">Italian Food:</label>
+      <select id="italianFood" name="italianFood" class="form-control">
+        <option value="Pizza Margherita">Pizza Margherita</option>
+        <option value="Spaghetti Carbonara">Spaghetti Carbonara</option>
+        <option value="Lasagna">Lasagna</option>
+        <option value="Risotto">Risotto</option>
+        <option value="Tiramisu">Tiramisu</option>
+        <option value="Caprese Salad">Caprese Salad</option>
+        <option value="Bruschetta">Bruschetta</option>
+        <option value="Panna Cotta">Panna Cotta</option>
+        <option value="Gelato">Gelato</option>
+        <option value="Osso Buco">Osso Buco</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="japaneseFoodDropdown" style="display:none;">
+      <label for="japaneseFood">Japanese Food:</label>
+      <select id="japaneseFood" name="japaneseFood" class="form-control">
+        <option value="Sushi">Sushi</option>
+        <option value="Ramen">Ramen</option>
+        <option value="Tempura">Tempura</option>
+        <option value="Yakitori">Yakitori</option>
+        <option value="Udon">Udon</option>
+        <option value="Sashimi">Sashimi</option>
+        <option value="Miso Soup">Miso Soup</option>
+        <option value="Tonkatsu">Tonkatsu</option>
+        <option value="Okonomiyaki">Okonomiyaki</option>
+        <option value="Gyoza">Gyoza</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="mexicanFoodDropdown" style="display:none;">
+      <label for="mexicanFood">Mexican Food:</label>
+      <select id="mexicanFood" name="mexicanFood" class="form-control">
+        <option value="Tacos">Tacos</option>
+        <option value="Burritos">Burritos</option>
+        <option value="Enchiladas">Enchiladas</option>
+        <option value="Quesadillas">Quesadillas</option>
+        <option value="Guacamole">Guacamole</option>
+        <option value="Chili Con Carne">Chili Con Carne</option>
+        <option value="Tamales">Tamales</option>
+        <option value="Nachos">Nachos</option>
+        <option value="Fajitas">Fajitas</option>
+        <option value="Sopa de Tortilla">Sopa de Tortilla</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="indianFoodDropdown" style="display:none;">
+      <label for="indianFood">Indian Food:</label>
+      <select id="indianFood" name="indianFood" class="form-control">
+        <option value="Butter Chicken">Butter Chicken</option>
+        <option value="Biryani">Biryani</option>
+        <option value="Tandoori Chicken">Tandoori Chicken</option>
+        <option value="Naan">Naan</option>
+        <option value="Paneer Tikka">Paneer Tikka</option>
+        <option value="Masala Dosa">Masala Dosa</option>
+        <option value="Samosa">Samosa</option>
+        <option value="Rogan Josh">Rogan Josh</option>
+        <option value="Palak Paneer">Palak Paneer</option>
+        <option value="Gulab Jamun">Gulab Jamun</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Place Order</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function showFoodDropdown() {
+    var cuisineType = document.getElementById("cuisineType").value;
+    var italianDropdown = document.getElementById("italianFoodDropdown");
+    var japaneseDropdown = document.getElementById("japaneseFoodDropdown");
+    var mexicanDropdown = document.getElementById("mexicanFoodDropdown");
+    var indianDropdown = document.getElementById("indianFoodDropdown");
+
+    // Hide all dropdowns first
+    italianDropdown.style.display = "none";
+    japaneseDropdown.style.display = "none";
+    mexicanDropdown.style.display = "none";
+    indianDropdown.style.display = "none";
+
+    // Show the selected cuisine's dropdown
+    if (cuisineType === "italian") {
+      italianDropdown.style.display = "block";
+    } else if (cuisineType === "japanese") {
+      japaneseDropdown.style.display = "block";
+    } else if (cuisineType === "mexican") {
+      mexicanDropdown.style.display = "block";
+    } else if (cuisineType === "indian") {
+      indianDropdown.style.display = "block";
+    }
+  }
+
+  document.getElementById("foodOrderForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Prevent default form submission
+
+    // Display the alert notification
+    alert("Order placed successfully!");
+
+    // Submit the form programmatically
+    this.submit();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Rooms</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for the page */
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .room-carousel {
+            max-width: 400px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .room-column {
+            display: inline-block;
+            vertical-align: top;
+            width: calc(25% - 20px);
+            margin: 10px;
+        }
+
+        .carousel-item img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .book-btn {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .book-btn:hover {
+            background-color: powderblue;
+        }
+
+        .room-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Styling for the marquee */
+        .funny-quote {
+            margin-top: 20px;
+            font-size: 24px;
+            color:grey;
+            text-align: center;
+        }
+
+        /* Style the marquee text */
+        .funny-quote marquee {
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+        }
+
+        /* Animation for the marquee */
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Rooms Available @ Miranda</h1>
+
+        <div class="row">
+            <!-- Standard Room Carousel -->
+            <div class="room-column">
+                <div class="room-carousel mb-5">
+                    <h3 class="room-title">Standard Room</h3>
+                    <div id="standardCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="miranda1.jpeg" class="d-block w-100" alt="Standard Room 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="ROOM3.jpeg" class="d-block w-100" alt="Standard Room 2">
+                            </div>
+                            <!-- Add more images for the standard room here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#standardCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#standardCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <a href="http://localhost/shankarPHP/wadprof.php" class="book-btn">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Deluxe Room Carousel -->
+            <div class="room-column">
+                <div class="room-carousel mb-5">
+                    <h3 class="room-title">Deluxe Room</h3>
+                    <div id="deluxeCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="ROOM1.jpeg" class="d-block w-100" alt="Deluxe Room 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="ROOM2.jpeg" class="d-block w-100" alt="Deluxe Room 2">
+                            </div>
+                            <!-- Add more images for the deluxe room here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#deluxeCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#deluxeCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <a href="http://localhost/shankarPHP/wadprof.php" class="book-btn">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Suite Room Carousel -->
+            <div class="room-column">
+                <div class="room-carousel mb-5">
+                    <h3 class="room-title">Suite Room</h3>
+                    <div id="suiteCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="suit1.jpg" class="d-block w-100" alt="Suite Room 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="suit2.jpg" class="d-block w-100" alt="Suite Room 2">
+                            </div>
+                            <!-- Add more images for the suite room here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#suiteCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#suiteCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <a href="http://localhost/shankarPHP/wadprof.php" class="book-btn">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Executive Room Carousel -->
+            <div class="room-column">
+                <div class="room-carousel mb-5">
+                    <h3 class="room-title">Executive Room</h3>
+                    <div id="executiveCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="last1.jpg" class="d-block w-100" alt="Executive Room 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="last2.jpg" class="d-block w-100" alt="Executive Room 2">
+                            </div>
+                            <!-- Add more images for the executive room here -->
+                        </div>
+                        <a class="carousel-control-prev" href="#executiveCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#executiveCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <a href="http://localhost/shankarPHP/wadprof.php" class="book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more room carousels as needed -->
+
+        <!-- Funny Rooms Quote -->
+        <div class="funny-quote">
+            <marquee direction="left" behavior="">
+                "Why stay in a normal room when you can stay in a room with a view of the galaxy!"
+            </marquee>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
